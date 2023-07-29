@@ -1,5 +1,6 @@
 "use client"
-import { useState } from "react";
+import { useState, useEffect } from "react"
+import Link from "next/link"
 
 const jeu = () => {
 
@@ -14,8 +15,17 @@ const jeu = () => {
         setNumber(number - 1)
     }
 
+    useEffect(() => {
+        // alert('La page vient de se charger !')
+        // console.log('Le nombre a changé')
+        return () => {
+            console.log('Le composant est démonté')
+        }
+    }, [])
+
     return (
         <> 
+            <Link href="/cv">CV</Link>
             <div>{number}</div>
             <button onClick={() => increment()}>Increment</button>
             <button onClick={() => decrement()}>Decrement</button>
